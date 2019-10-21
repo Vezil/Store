@@ -46,14 +46,14 @@ export default class Details extends Component {
                                  <div>
 
                                      <Link to='/'>
-                                        <ButtonContainer>back to products</ButtonContainer>
+                                        <ButtonContainer><i className="fas fa-undo"></i>&nbsp;back to products</ButtonContainer>
                                      </Link>
                                       <ButtonContainer cart disabled={ inCart ? true : false }   onClick={() => { 
                                           value.addToCart(id);
                                           value.openModal(id);
                                             
 
-                                         }}>{ inCart ? "inCart" : "add to cart"}</ButtonContainer>
+                                         }}>{ inCart ? <i className="fas fa-check"></i> : <i className="fas fa-plus"></i> }  { inCart ? "inCart" : "add to cart"}</ButtonContainer>
                                  </div>
                                  
                                 </div>
