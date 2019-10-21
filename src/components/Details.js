@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { ProductConsumer } from '../context';
+import {BrowserRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ButtonContainer } from './Button';
+
 
 export default class Details extends Component {
 
     render(){
         return(
+            
                 <ProductConsumer>
                     {(value)=>{
                        const{id,
@@ -37,7 +40,7 @@ export default class Details extends Component {
 
                                  <p className="text-capitalize font-weight-bold mt-3 mb-0"> some info about product: </p>
 
-                                 <p className="text-muted lead"> { info } </p>
+                                 <p className="text-muted lead"> { info } </p> <div className="mb-4"><a href='http://szymonwojaczek.pl/Yerba%20Mate/Recenzje/2/CDM.php' target="_blank">{ id === 6 ? "REVIEW" : "" }</a></div> 
 
                                 {/* buttons */}
                                  <div>
@@ -50,7 +53,7 @@ export default class Details extends Component {
                                           value.openModal(id);
                                             
 
-                                         }}>{ inCart ? "inCart" : "add to cart" }</ButtonContainer>
+                                         }}>{ inCart ? "inCart" : "add to cart"}</ButtonContainer>
                                  </div>
                                  
                                 </div>
@@ -58,11 +61,15 @@ export default class Details extends Component {
                            </div>
 
                          </div>
+                         
                        );
                     }}
 
                 </ProductConsumer>
+                
         );
+        
     }
+
 
 }
