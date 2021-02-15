@@ -23,6 +23,13 @@ export default class Modal extends Component {
                                             id="modal"
                                             className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize"
                                         >
+                                            <div
+                                                className="closeButton"
+                                                onClick={() => closeModal()}
+                                            >
+                                                x
+                                            </div>
+
                                             <h5>item added to the card</h5>
                                             <img
                                                 src={img}
@@ -74,5 +81,19 @@ const ModalContainer = styled.div`
     justify-content: center;
     #modal {
         background: var(--mainWhite);
+        padding: 40px;
+        border-radius: 10px;
+    }
+
+    .closeButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: red;
+        padding-right: 10px;
+        padding-top: 5px;
+        text-transform: lowercase;
+        font-size: 1.5rem;
+        cursor: pointer;
     }
 `;

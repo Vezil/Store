@@ -37,11 +37,13 @@ export default class Product extends Component {
                                             disabled
                                         >
                                             {' '}
-                                            <i class="fas fa-check"></i>&nbsp;
-                                            In Cart
+                                            <i className="fas fa-check"></i>
+                                            &nbsp; In Cart
                                         </p>
                                     ) : (
-                                        <i className="fas fa-cart-plus" />
+                                        <i className="fas fa-cart-plus">
+                                            &nbsp; Add to the cart
+                                        </i>
                                     )}
                                 </button>
                             </div>
@@ -76,13 +78,13 @@ Product.propTypes = {
 const ProductWrapper = styled.div`
     .card {
         border-color: transparent;
-        transition: all 1s linear;
+        transition: all 0.5s linear;
     }
 
     .card-footer {
         background: transparent;
         border-top: transparent;
-        transition: all 1s linear;
+        transition: all 0.5s linear;
     }
 
     &:hover {
@@ -101,7 +103,7 @@ const ProductWrapper = styled.div`
     }
 
     .card-img-top {
-        transition: all 1s linear;
+        transition: all 0.5s linear;
     }
 
     .img-container:hover .card-img-top {
@@ -119,7 +121,7 @@ const ProductWrapper = styled.div`
         font-size: 1.4rem;
         border-radius: 0.5rem 0 0 0;
         transform: translate(100%, 100%);
-        transition: all 1s linear;
+        transition: all 0.5s linear;
     }
 
     .img-container:hover .cart-btn {

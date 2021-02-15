@@ -6,7 +6,8 @@ export default class FooterG extends Component {
         return (
             <FooterWrapper>
                 <div className="FooterG page-footer text-center p-2">
-                    © 2019 Copyright: Szymon Wojaczek&nbsp;&nbsp;
+                    © {new Date().getFullYear()} Copyright: Szymon
+                    Wojaczek&nbsp;&nbsp;
                     <a href="https://github.com/Vezil/" target="_blank">
                         Github
                     </a>
