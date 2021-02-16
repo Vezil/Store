@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { storeProducts, detailProduct } from './data';
-import { timeout } from 'q';
 
 const ProductContext = React.createContext();
 
@@ -13,7 +12,8 @@ class ProductProvider extends Component {
         modalProduct: detailProduct,
         cartSubTotal: 0,
         cartTax: 0,
-        cartTotal: 0
+        cartTotal: 0,
+        errorModalOpen: false
     };
 
     componentDidMount() {
@@ -75,6 +75,18 @@ class ProductProvider extends Component {
     closeModal = () => {
         this.setState(() => {
             return { modalOpen: false };
+        });
+    };
+
+    openErrorModal = () => {
+        this.setState(() => {
+            return { errorModalOpen: true };
+        });
+    };
+
+    closeErrorModal = () => {
+        this.setState(() => {
+            return { errorModalOpen: false };
         });
     };
 
@@ -182,6 +194,8 @@ class ProductProvider extends Component {
                     addToCart: this.addToCart,
                     openModal: this.openModal,
                     closeModal: this.closeModal,
+                    openErrorModal: this.openErrorModal,
+                    closeErrorModal: this.closeErrorModal,
                     increment: this.increment,
                     decrement: this.decrement,
                     removeItem: this.removeItem,
