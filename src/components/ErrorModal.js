@@ -9,9 +9,7 @@ export default class Modal extends Component {
         return (
             <ProductConsumer>
                 {(value) => {
-                    const { errorModalOpen, closeErrorModal } = value;
-
-                    console.log({ errorModalOpen });
+                    const { errorModalOpen, closeErrorModal, error } = value;
 
                     if (errorModalOpen) {
                         return (
@@ -30,25 +28,30 @@ export default class Modal extends Component {
                                             >
                                                 x
                                             </div>
+
+                                            <div className="errorContent">
+                                                {error}
+                                            </div>
+
                                             <Link to="/">
-                                                <ButtonContainer
-                                                    onClick={() =>
-                                                        closeErrorModal()
-                                                    }
-                                                >
-                                                    <i className="fas fa-undo"></i>
-                                                    &nbsp;store
-                                                </ButtonContainer>
-                                            </Link>
-                                            <Link to="/cart">
                                                 <ButtonContainer
                                                     cart
                                                     onClick={() =>
                                                         closeErrorModal()
                                                     }
                                                 >
-                                                    <i className="fas fa-shopping-cart"></i>
-                                                    &nbsp;go to cart
+                                                    <i className="fas fa-store-alt"></i>
+                                                    &nbsp;go to the store
+                                                </ButtonContainer>
+                                            </Link>
+                                            <Link to="/cart">
+                                                <ButtonContainer
+                                                    onClick={() =>
+                                                        closeErrorModal()
+                                                    }
+                                                >
+                                                    <i className="fas fa-undo"></i>
+                                                    &nbsp;return to the cart
                                                 </ButtonContainer>
                                             </Link>
                                         </div>
@@ -79,6 +82,9 @@ const ErrorModalContainer = styled.div`
         border-radius: 10px;
     }
 
+    .errorContent {
+        padding: 20px;
+    }
     .closeButton {
         position: absolute;
         top: 0;

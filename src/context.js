@@ -13,7 +13,8 @@ class ProductProvider extends Component {
         cartSubTotal: 0,
         cartTax: 0,
         cartTotal: 0,
-        errorModalOpen: false
+        errorModalOpen: false,
+        error: ''
     };
 
     componentDidMount() {
@@ -78,9 +79,9 @@ class ProductProvider extends Component {
         });
     };
 
-    openErrorModal = () => {
+    openErrorModal = (error) => {
         this.setState(() => {
-            return { errorModalOpen: true };
+            return { error, errorModalOpen: true };
         });
     };
 

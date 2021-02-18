@@ -42,7 +42,7 @@ body {
     font-size: 1.2rem;
     color: var(--mainYellow);
 }
-.fa-store-alt {
+.navbar .fa-store-alt {
     color: orange;
     font-size: 1.6rem;
 }
