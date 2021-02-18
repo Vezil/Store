@@ -6,6 +6,7 @@ import { ButtonContainer } from './Button';
 
 
 export default class Details extends Component {
+<<<<<<< HEAD
 
     render(){
         return(
@@ -13,6 +14,14 @@ export default class Details extends Component {
                 <ProductConsumer>
                     {(value)=>{
                        const{id,
+=======
+    render() {
+        return (
+            <ProductConsumer>
+                {(value) => {
+                    const {
+                        id,
+>>>>>>> ea625a67594894e6ff6a860d183615930ed67e2b
                         company,
                         img,
                         info,
@@ -21,6 +30,7 @@ export default class Details extends Component {
                         inCart
                     } = value.detailProduct;
 
+<<<<<<< HEAD
                        return (
                            <div className="container py-5">
 
@@ -56,8 +66,18 @@ export default class Details extends Component {
                                          }}>{ inCart ? "inCart" : "add to cart"}</ButtonContainer>
                                  </div>
                                  
+=======
+                    return (
+                        <div className="container py-5">
+                            <div className="row">
+                                <div className="col-10 mx-auto text-center text-slanted text-blue my-5">
+                                    {' '}
+                                    <h1>{title}</h1>{' '}
+>>>>>>> ea625a67594894e6ff6a860d183615930ed67e2b
                                 </div>
+                            </div>
 
+<<<<<<< HEAD
                            </div>
 
                          </div>
@@ -67,9 +87,87 @@ export default class Details extends Component {
 
                 </ProductConsumer>
                 
+=======
+                            <div className="row">
+                                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                    {' '}
+                                    <img
+                                        src={img}
+                                        className="img-fluid"
+                                        alt="productimg"
+                                    />{' '}
+                                </div>
+
+                                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                    <h2> model: {title} </h2>
+                                    <h4 className="text-title text-uppercase text-muted mt-3 mb-2">
+                                        {' '}
+                                        made by:{' '}
+                                        <span className="text-uppercase">
+                                            {' '}
+                                            {company}{' '}
+                                        </span>{' '}
+                                    </h4>
+                                    <h4 className="text-blue">
+                                        {' '}
+                                        <strong>
+                                            {' '}
+                                            price: <span>$</span> {price}{' '}
+                                        </strong>{' '}
+                                    </h4>
+                                    <p className="text-capitalize font-weight-bold mt-3 mb-0">
+                                        {' '}
+                                        some info about product:{' '}
+                                    </p>
+                                    <p className="text-muted lead">
+                                        {' '}
+                                        {info}{' '}
+                                    </p>{' '}
+                                    <div className="mb-4">
+                                        <a
+                                            href="http://szymonwojaczek.pl/Yerba%20Mate/Recenzje/2/CDM.php"
+                                            target="_blank"
+                                        >
+                                            {id === 6 ? 'REVIEW' : ''}
+                                        </a>
+                                    </div>
+                                    {/* buttons */}
+                                    <div>
+                                        <Link to="/">
+                                            <ButtonContainer>
+                                                <i className="fas fa-undo"></i>
+                                                &nbsp;back to products
+                                            </ButtonContainer>
+                                        </Link>
+                                        <ButtonContainer
+                                            cart
+                                            disabled={inCart ? true : false}
+                                            onClick={() => {
+                                                value.addToCart(id);
+                                                value.openModal(id);
+                                            }}
+                                        >
+                                            {inCart ? (
+                                                <i className="fas fa-check"></i>
+                                            ) : (
+                                                <i className="fas fa-plus"></i>
+                                            )}{' '}
+                                            {inCart ? 'inCart' : 'add to cart'}
+                                        </ButtonContainer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }}
+            </ProductConsumer>
+>>>>>>> ea625a67594894e6ff6a860d183615930ed67e2b
         );
         
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ea625a67594894e6ff6a860d183615930ed67e2b
 }
