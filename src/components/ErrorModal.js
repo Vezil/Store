@@ -9,55 +9,55 @@ export default class Modal extends Component {
         return (
             <ProductConsumer>
                 {(value) => {
-                    const { modalOpen, closeModal } = value;
-                    const { img, title, price } = value.modalProduct;
-                    if (modalOpen) {
+                    const { errorModalOpen, closeErrorModal, error } = value;
+
+                    if (errorModalOpen) {
                         return (
-                            <ModalContainer>
+                            <ErrorModalContainer>
                                 <div className="container">
                                     <div className="row">
                                         <div
-                                            id="modal"
+                                            id="errorModal"
                                             className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize"
                                         >
                                             <div
                                                 className="closeButton"
-                                                onClick={() => closeModal()}
+                                                onClick={() =>
+                                                    closeErrorModal()
+                                                }
                                             >
                                                 x
                                             </div>
 
-                                            <h5>item added to the card</h5>
-                                            <img
-                                                src={img}
-                                                className="img-fluid"
-                                                alt="img product"
-                                            />
-                                            <h5>{title}</h5>
-                                            <h5 className="text-muted">
-                                                price: {price} $
-                                            </h5>
+                                            <div className="errorContent">
+                                                {error}
+                                            </div>
+
                                             <Link to="/">
                                                 <ButtonContainer
-                                                    onClick={() => closeModal()}
+                                                    cart
+                                                    onClick={() =>
+                                                        closeErrorModal()
+                                                    }
                                                 >
-                                                    <i className="fas fa-undo"></i>
-                                                    &nbsp;store
+                                                    <i className="fas fa-store-alt"></i>
+                                                    &nbsp;go to the store
                                                 </ButtonContainer>
                                             </Link>
                                             <Link to="/cart">
                                                 <ButtonContainer
-                                                    cart
-                                                    onClick={() => closeModal()}
+                                                    onClick={() =>
+                                                        closeErrorModal()
+                                                    }
                                                 >
-                                                    <i className="fas fa-shopping-cart"></i>
-                                                    &nbsp;go to cart
+                                                    <i className="fas fa-undo"></i>
+                                                    &nbsp;return to the cart
                                                 </ButtonContainer>
                                             </Link>
                                         </div>
                                     </div>
                                 </div>
-                            </ModalContainer>
+                            </ErrorModalContainer>
                         );
                     }
                 }}
@@ -66,7 +66,7 @@ export default class Modal extends Component {
     }
 }
 
-const ModalContainer = styled.div`
+const ErrorModalContainer = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -76,12 +76,15 @@ const ModalContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    #modal {
+    #errorModal {
         background: var(--mainWhite);
         padding: 40px;
         border-radius: 10px;
     }
 
+    .errorContent {
+        padding: 20px;
+    }
     .closeButton {
         position: absolute;
         top: 0;
