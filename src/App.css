@@ -36,6 +36,7 @@ body {
 .btn-black:hover {
     background: var(--mainDark) !important;
     color: var(--mainWhite) !important;
+    cursor: pointer;
 }
 .cart-icon {
     cursor: pointer;

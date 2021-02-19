@@ -30,7 +30,12 @@ export default function CartItem({ item, value }) {
                     >
                         -
                     </span>
-                    <span className="btn btn-black mx-1">{count}</span>
+                    <span
+                        className="btn btn-black mx-1"
+                        style={{ cursor: 'default' }}
+                    >
+                        {count}
+                    </span>
                     <span
                         className="btn btn-black mx-1"
                         onClick={() => increment(id)}
