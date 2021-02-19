@@ -10,6 +10,10 @@ export default class Product extends Component {
         return (
             <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
                 <div className="card">
+                    <div class="ribbon">
+                        <span>Vezil Store</span>
+                    </div>
+
                     <ProductConsumer>
                         {(value) => (
                             <div
@@ -79,6 +83,58 @@ const ProductWrapper = styled.div`
     .card {
         border-color: transparent;
         transition: all 0.5s linear;
+        box-shadow: -0.1em 0.1em 0.3em rgba(0, 0, 0, 0.1);
+    }
+
+    .card .ribbon {
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        display: block;
+        border: 5px solid #2980b9;
+        border-top-color: transparent;
+        border-left-color: transparent;
+    }
+
+    .ribbon span {
+        position: absolute;
+        display: block;
+        width: 225px;
+        padding: 15px 0;
+        background-color: #3498db;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        color: #fff;
+        font: 700 10px/2 'Lato', sans-serif;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        text-align: center;
+        padding-left: 50px;
+    }
+
+    .ribbon::before {
+        top: 0;
+        right: 0;
+    }
+    .ribbon::after {
+        bottom: 0;
+        left: 0;
+    }
+
+    .ribbon span {
+        right: -25px;
+        top: 30px;
+        transform: rotate(-45deg);
     }
 
     .card-footer {
@@ -90,7 +146,7 @@ const ProductWrapper = styled.div`
     &:hover {
         .card {
             border: 0.04rem solid rgba(0, 0, 0, 0.2);
-            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: -0.3em 0.3em 0.5em rgba(0, 0, 0, 0.2);
         }
         .card-footer {
             backgorund: rgba(247, 247, 247);
