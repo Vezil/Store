@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 export default class Product extends Component {
     render() {
-        const { id, title, img, price, inCart } = this.props.product;
+        const { id, title, img, price, inCart, count } = this.props.product;
         return (
             <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
                 <div className="card">
@@ -20,6 +20,11 @@ export default class Product extends Component {
                                 className="img-container p-5"
                                 onClick={() => value.handleDetail(id)}
                             >
+                                <h5 className="text-blue font-italic price">
+                                    <span className="mr-1">$</span>
+                                    {price}
+                                </h5>
+
                                 <Link to="/details">
                                     <img
                                         src={img}
@@ -27,9 +32,22 @@ export default class Product extends Component {
                                         className="card-img-top"
                                     />
                                 </Link>
+                                {inCart ? (
+                                    <div className="cardCount">
+                                        <div className="btn btn-black mx-1 btnCard">
+                                            +
+                                        </div>
+                                        <div>{count}</div>
+                                        <div className="btn btn-black mx-1 btnCard">
+                                            -
+                                        </div>
+                                    </div>
+                                ) : (
+                                    ''
+                                )}
                                 <button
                                     className="cart-btn"
-                                    disabled={inCart ? true : false}
+                                    disabled={inCart}
                                     onClick={() => {
                                         value.addToCart(id);
                                         value.openModal(id);
@@ -58,10 +76,6 @@ export default class Product extends Component {
 
                     <div className="card-footer d-flex justify-content-between">
                         <p className="align-self-center mb-0">{title}</p>
-                        <h5 className="text-blue font-italic mb-0">
-                            <span className="mr-1">$</span>
-                            {price}
-                        </h5>
                     </div>
                 </div>
             </ProductWrapper>
@@ -187,5 +201,43 @@ const ProductWrapper = styled.div`
     .cart-btn:hover {
         color: var(--mainBlue);
         cursor: pointer;
+    }
+
+    .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        text-shadow: -5px 1px 12px rgba(19, 0, 128, 0.66);
+    }
+
+    .cardCount {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: var(--mainYellow);
+        border: none;
+        color: black;
+        font-size: 1.4rem;
+        border-radius: 0 0.5rem 0 0;
+        transform: translate(100%, 100%);
+        transition: all 0.5s linear;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .img-container:hover .cardCount {
+        transform: translate(0, 0);
+        padding: 0.2rem 0.4rem;
+    }
+
+    .cardCount div {
+        padding-right: 5px;
+        padding-left: 5px;
+        cursor: pointer;
+    }
+
+    .cardCound btnCard {
+        border: 0 !important;
     }
 `;
