@@ -31,11 +31,16 @@ body {
     font-size: 0.8rem !important;
     color: var(--mainDark);
     border-radius: 0 !important;
-    border: 0.1rem solid var(--mainDark) !important;
 }
+
+.cartItem .btn-black {
+    border: 0.1rem solid var(--mainDark);
+}
+
 .btn-black:hover {
     background: var(--mainDark) !important;
     color: var(--mainWhite) !important;
+    cursor: pointer;
 }
 .cart-icon {
     cursor: pointer;

@@ -25,4 +25,5 @@ const FooterWrapper = styled.nav`
     left: 0;
     right: 0;
     opacity: 0.7;
+    z-index: 10;
 `;
