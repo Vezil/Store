@@ -34,11 +34,17 @@ export default class Product extends Component {
                                 </Link>
                                 {inCart ? (
                                     <div className="cardCount">
-                                        <div className="btn btn-black mx-1 btnCard">
+                                        <div
+                                            className="btn btn-black mx-1 btnCard"
+                                            onClick={() => value.increment(id)}
+                                        >
                                             +
                                         </div>
                                         <div>{count}</div>
-                                        <div className="btn btn-black mx-1 btnCard">
+                                        <div
+                                            className="btn btn-black mx-1 btnCard"
+                                            onClick={() => value.decrement(id)}
+                                        >
                                             -
                                         </div>
                                     </div>
